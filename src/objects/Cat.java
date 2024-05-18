@@ -111,5 +111,51 @@ public class Cat {
             }
         }
     }
+    public void heal(){
+        if (!afterUse){
+            if (age <= 5){
+                health += 7;
+                if (health > 100){
+                    health = 100;
+                }
+                mood -= 3;
+                if (mood < 0){
+                    mood = 0;
+                }
+                fullness -= 3;
+                if (fullness < 0){
+                    fullness = 0;
+                }
+            }
+            if (age > 5 && age <= 10){
+                health += 5;
+                if (health > 100){
+                    health = 100;
+                }
+                mood -= 5;
+                if (mood < 0){
+                    mood = 0;
+                }
+                fullness -= 5;
+                if (fullness < 0){
+                    fullness = 0;
+                }
+            }
+            if (age > 10){
+                health += 4;
+                if (health > 100){
+                    health = 100;
+                }
+                mood -= 6;
+                if (mood < 0){
+                    mood = 0;
+                }
+                fullness -= 6;
+                if (fullness < 0){
+                    fullness = 0;
+                }
+            }
+        }
+    }
 
 }
