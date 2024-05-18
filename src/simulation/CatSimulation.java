@@ -23,6 +23,7 @@ public class CatSimulation {
     }
 
     public void printCats(){
+        deleteCatWithZeroHealth();
         cats.sort((c1,c2)-> c2.getAverageLevel() - c1.getAverageLevel());
         System.out.println("==============================================================================");
         System.out.println("# |     Имя     | Возраст | Здоровье | Настроение | Сытость | Средний уровень");
@@ -45,6 +46,13 @@ public class CatSimulation {
                 return current;
             }catch (UserInPut e){
                 System.out.println("Вы ничего не ввели ! напишите снова !");
+            }
+        }
+    }
+    private void deleteCatWithZeroHealth(){
+        for (int i = 0; i < cats.size();i++){
+            if (cats.get(i).getHealth() == 0){
+                cats.remove(i);
             }
         }
     }
