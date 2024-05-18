@@ -80,7 +80,7 @@ public class Cat {
     public void feed(){
         if (!afterUse){
             int randomFeed = random.nextInt(10)+1;
-            if (randomFeed > 3){
+            if (randomFeed > 4){
                 if (age <= 5){
                     fullness += 7;
                     if (fullness > 100){
@@ -174,7 +174,7 @@ public class Cat {
     public void play(){
         if (!afterUse){
             int randomGame = random.nextInt(10)+1;
-            if (randomGame > 3){
+            if (randomGame > 4){
                 if (age <= 5){
                     mood += 7;
                     if (mood > 100){
