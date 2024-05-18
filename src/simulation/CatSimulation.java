@@ -85,8 +85,8 @@ public class CatSimulation {
     public void runSimulation(){
         while (true){
             printCats();
-            System.out.printf("Выберите что вы хотите сделать !%n1) Кормить кота%n2) Играть с котом%n3) Лечить кота%n4) Завести нового питомца%n");
-            int choiceAction = getChoice(1,4);
+            System.out.printf("Выберите что вы хотите сделать !%n1) Кормить кота%n2) Играть с котом%n3) Лечить кота%n4) Завести нового питомца%n5) Следующий день%n");
+            int choiceAction = getChoice(1,5);
             switch (choiceAction){
                 case 1:
                 case 2:
@@ -96,9 +96,12 @@ public class CatSimulation {
                 case 4:
                     addCat();
                     break;
+                case 5:
+                    nextDay();
+                    cleanBooleanIsAfterUse();
+                    System.out.println("Настал следующий день !");
+                    break;
             }
-            nextDay();
-            System.out.println("Настал следующий день !");
         }
     }
     private void cleanBooleanIsAfterUse(){
@@ -114,7 +117,6 @@ public class CatSimulation {
             System.out.println("Кот не найден .");
             return;
         }
-        cleanBooleanIsAfterUse();
         switch (choicenNum){
             case 1:
                 cat.feed();
