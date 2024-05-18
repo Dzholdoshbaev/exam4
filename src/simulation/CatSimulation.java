@@ -121,12 +121,10 @@ public class CatSimulation {
             case 1:
                 cat.feed();
                 cat.setAfterUse(true);
-                System.out.printf("You fed cat %s , %d years old%n",cat.getName(),cat.getAge());
                 break;
             case 2:
                 cat.play();
                 cat.setAfterUse(true);
-                System.out.printf("You played with cat %s , %d years old%n",cat.getName(),cat.getAge());
                 break;
             case 3:
                 cat.heal();
@@ -136,7 +134,7 @@ public class CatSimulation {
         }
     }
     private void addCat(){
-        System.out.println("Введите имя кота : ");
+        System.out.println("Введите имя кота на английском (для вашего удобства) : ");
         String name = userCheckEmptyInput();
         System.out.println("Введите возраст от 1 го до 18 лет : ");
         int age = getChoice(1,18);
