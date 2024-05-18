@@ -57,5 +57,25 @@ public class Cat {
     public void setAfterUse(boolean afterUse) {
         this.afterUse = afterUse;
     }
+    public void nextDay(){
+        fullness -= getRandomForNextDay(1,5);
+        if (fullness < 0 ){
+            fullness = 0;
+        }
+        mood += getRandomForNextDay(-3,+3);
+        if (mood > 100){
+            mood = 100;
+        }
+        if (mood < 0){
+            mood = 0;
+        }
+        health += getRandomForNextDay(-3,+3);
+        if (health > 100){
+            health = 100;
+        }
+        if (health < 0){
+            health = 0;
+        }
+    }
 
 }
