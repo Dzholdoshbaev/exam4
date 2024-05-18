@@ -82,6 +82,71 @@ public class CatSimulation {
         }
     }
 
+    public void runSimulation(){
+        while (true){
+            printCats();
+            System.out.printf("Выберите что вы хотите сделать !%n1) Кормить кота%n2) Играть с котом%n3) Лечить кота%n4) Завести нового питомца%n");
+            int choiceAction = getChoice(1,4);
+            switch (choiceAction){
+                case 1:
+                case 2:
+                case 3:
+                    actionWithCat(choiceAction);
+                    break;
+                case 4:
+                    addCat();
+                    break;
+            }
+            nextDay();
+            System.out.println("Настал следующий день !");
+        }
+    }
+    private void cleanBooleanIsAfterUse(){
+        for (int i = 0 ; i < cats.size();i++){
+            cats.get(i).setAfterUse(false);
+        }
+    }
+    private void actionWithCat(int choicenNum){
+        System.out.println("Введите номер кота для действия с ним  : ");
+        int number = getIntInput();
+        Cat cat = findCatByNumber(number);
+        if (cat == null) {
+            System.out.println("Кот не найден .");
+            return;
+        }
+        cleanBooleanIsAfterUse();
+        switch (choicenNum){
+            case 1:
+                cat.feed();
+                cat.setAfterUse(true);
+                System.out.printf("You fed cat %s , %d years old%n",cat.getName(),cat.getAge());
+                break;
+            case 2:
+                cat.play();
+                cat.setAfterUse(true);
+                System.out.printf("You played with cat %s , %d years old%n",cat.getName(),cat.getAge());
+                break;
+            case 3:
+                cat.heal();
+                cat.setAfterUse(true);
+                System.out.printf("You healed cat %s , %d years old%n",cat.getName(),cat.getAge());
+                break;
+        }
+    }
+    private void addCat(){
+        System.out.println("Введите имя кота : ");
+        String name = userCheckEmptyInput();
+        System.out.println("Введите возраст от 1 го до 18 лет : ");
+        int age = getChoice(1,18);
+        Cat newCat = new Cat(name,age);
+        cats.add(newCat);
+        System.out.println("Кошка добавлена успешно !");
+    }
+    private void nextDay(){
+        for (Cat cat : cats){
+            cat.nextDay();
+        }
+    }
 
 
 }
