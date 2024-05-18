@@ -77,5 +77,39 @@ public class Cat {
             health = 0;
         }
     }
+    public void feed(){
+        if (!afterUse){
+            if (age <= 5){
+                fullness += 7;
+                if (fullness > 100){
+                    fullness = 100;
+                }
+                mood += 7;
+                if (mood > 100){
+                    mood = 100;
+                }
+            }
+            if (age > 5 && age <= 10){
+                fullness += 5;
+                if (fullness > 100){
+                    fullness = 100;
+                }
+                mood += 5;
+                if (mood > 100){
+                    mood = 100;
+                }
+            }
+            if (age > 10){
+                fullness += 4;
+                if (fullness > 100){
+                    fullness = 100;
+                }
+                mood += 4;
+                if (mood > 100){
+                    mood = 100;
+                }
+            }
+        }
+    }
 
 }
